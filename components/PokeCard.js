@@ -16,7 +16,7 @@ import { Card, ListItem, Button, Icon, Input } from 'react-native-elements'
 function PokeCard({ pokemon }) {
   // console.log(pokemon)
   return ( 
-<Card borderRadius={15}>
+<Card borderRadius={15} marginTop= {30}>
         <View style={styles.container}>
             <View style={{flex: 1}}>
                 <Image
@@ -58,11 +58,15 @@ function PokeCard({ pokemon }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+   
   },
   image: {
-    width: 100,
-    height: 100
+    position: 'absolute',
+    left:0,
+    bottom:10,
+    width: 150,
+    height: 150
   },
   titleText: {
     fontSize: 20,

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,13 +11,11 @@ import {
 
 function Navbar() {
     return (
-        <View  style={{justifyContent: 'center', alignItems: 'center', padding: 50}}>
-            <Text>
+        <View style={{marginTop: 70}}>
+            <Text style={{padding: 40, justifyContent: 'center', textAlign: 'center'}}>
                 Pokedéx
             </Text>
-            <Text>
-            Search pokemon by name
-            </Text>
+
         </View>
     );
 }
