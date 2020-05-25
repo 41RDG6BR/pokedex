@@ -15,7 +15,6 @@ function Navbar() {
             <Text style={{padding: 40, justifyContent: 'center', textAlign: 'center'}}>
                 Pokedéx
             </Text>
-
         </View>
     );
 }
