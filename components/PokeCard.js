@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -45,10 +44,13 @@ function PokeCard({ pokemon }) {
                       }
                   </View>
                       <Text>
-                        Weight: {pokemon.weight}
+                        hp: {pokemon.stats[5].base_stat}
                       </Text>
                       <Text>
-                        Height: {pokemon.height}
+                        Attack: {pokemon.stats[4].base_stat}
+                      </Text>
+                      <Text>
+                        Defense: {pokemon.stats[3].base_stat}
                       </Text>
                       <Text>
                         Ability: {pokemon.abilities[0].ability.name}
