@@ -14,52 +14,54 @@ import typeColors from '../helpers/typeColors'
 import { Card, ListItem, Button, Icon, Input } from 'react-native-elements'
 
 function PokeCard({ pokemon }) {
-  // console.log(pokemon)
-  return ( 
-<Card borderRadius={15} marginTop= {30}>
-        <View style={styles.container}>
-            <View style={{flex: 1}}>
-                <Image
-                    style={styles.image}
-                    source={{ uri: pokemon.sprites.front_default }}
-                />
-                
-            </View>
-            <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={styles.titleText}>
-                    {pokemon.name}
-                </Text>
-                 <View style={{flexDirection: 'row' }}>
-                {
-                    pokemon.types.map(type => {
-                        return (
-                            <Text style={{ backgroundColor: typeColors[type.type.name] }}>
-                                {type.type.name}
-                            </Text>
-                        )
-                    })
-                }
-            </View>
-                <Text>
-                   Weight: {pokemon.weight}
-                </Text>
-                <Text>
-                   Height: {pokemon.height}
-                </Text>
-                <Text>
-                   Ability: {pokemon.abilities[0].ability.name}
-                </Text>
-            </View>
-        </View> 
-</Card>
 
+  pokemon.types.forEach(element => {
+    if(element.slot === 1)
+      type = element.type.name
+  })
+
+  return ( 
+      <Card borderRadius={15} marginTop= {30} containerStyle={{backgroundColor: typeColors[type], opacity: 0.6}}>
+              <View style={styles.container} >
+                  <View style={{flex: 1}}>
+                      <Image
+                          style={styles.image}
+                          source={{ uri: pokemon.sprites.front_default }}
+                      />                      
+                  </View>
+                  <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+                      <Text style={styles.titleText}>
+                          {pokemon.name}
+                      </Text>
+                      <View style={{flexDirection: 'row' }}>
+                      {
+                          pokemon.types.map(type => {
+                              return (
+                                  <Text key={type.type.name} style={{ backgroundColor: typeColors[type.type.name] }}>
+                                      {type.type.name}  
+                                  </Text>
+                              )
+                          })
+                      }
+                  </View>
+                      <Text>
+                        Weight: {pokemon.weight}
+                      </Text>
+                      <Text>
+                        Height: {pokemon.height}
+                      </Text>
+                      <Text>
+                        Ability: {pokemon.abilities[0].ability.name}
+                      </Text>
+                  </View>
+              </View> 
+      </Card>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-   
+    flexDirection: 'row',   
   },
   image: {
     position: 'absolute',
